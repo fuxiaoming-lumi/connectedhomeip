@@ -1,0 +1,16 @@
+# Common args for EFR32 platform
+import("//build_overrides/chip.gni")
+import("//build_overrides/efr32_sdk.gni")
+import("${chip_root}/src/platform/device.gni")
+
+# Use OpenThread
+chip_enable_openthread = true
+
+# Use Thread
+chip_config_network_layer_ble = false
+
+# Use the EFR32 platform
+target_defines = ["EFR32_PLATFORM"]
+
+# Include platform-specific files
+import("${chip_root}/examples/platform/silabs/args.gni")
